@@ -56,6 +56,26 @@ namespace FisherMidtermB.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Size,Filling,FirstName,LastName,Phone,DateRequested")] Taco taco)
         {
+            if (taco.Size == "Small")
+            {
+                taco.Total = 8.00;
+            }
+
+            if (taco.Size == "Medium")
+            {
+                taco.Total = 10.00;
+            }
+
+            if (taco.Size == "Large")
+            {
+                taco.Total = 12.00;
+            }
+            
+            if (taco.Filling == "Beans")
+            {
+
+            }
+
             if (ModelState.IsValid)
             {
                 _context.Add(taco);
