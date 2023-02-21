@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<FisherMidtermB.Models.Taco>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Taco Order History";
 }
 
-<h1>Index</h1>
+<h1>Taco Order History</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -12,6 +12,9 @@
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DateRequested)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Size)
             </th>
@@ -28,9 +31,6 @@
                 @Html.DisplayNameFor(model => model.Phone)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DateRequested)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Total)
             </th>
             <th></th>
@@ -39,6 +39,9 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateRequested)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Size)
             </td>
@@ -53,9 +56,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Phone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateRequested)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Total)
