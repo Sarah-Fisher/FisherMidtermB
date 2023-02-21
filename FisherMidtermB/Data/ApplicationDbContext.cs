@@ -9,5 +9,7 @@ namespace FisherMidtermB.Data
             : base(options)
         {
         }
+        public DbSet<FisherMidtermB.Models.Taco> Taco { get; set; }
+
     }
 }
