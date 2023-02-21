@@ -59,25 +59,28 @@ namespace FisherMidtermB.Controllers
             if (taco.Size == "Small")
             {
                 taco.Total = 8.00;
-            }
-
-            if (taco.Size == "Medium")
+            } else if (taco.Size == "Medium")
             {
                 taco.Total = 10.00;
-            }
-
-            if (taco.Size == "Large")
+            } else if (taco.Size == "Large")
             {
                 taco.Total = 12.00;
             }
             
             if (taco.Filling == "Beans")
             {
-
-            }
+                taco.Total = taco.Total + 6.00;
+            } else if (taco.Filling == "Fish")
+            {
+                taco.Total = taco.Total + 8.00;
+            } else if (taco.Filling == "Shrimp")
+            {
+                taco.Total = taco.Total + 10.00;
+            }            
 
             if (ModelState.IsValid)
             {
+                _context.Add(taco.Total);
                 _context.Add(taco);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
